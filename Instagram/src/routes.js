@@ -11,8 +11,8 @@ import logo from './assets/logo.png';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-import Profile from './components/Profile';
 import Feed from './pages/Feed';
+import Profile from './components/BottomTab/Profile';
 
 const icons = {
     Feed: {
@@ -37,9 +37,9 @@ export function TabNavigation() {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
-                tabBarIcon: ({ color, size }) => {
+                tabBarIcon: ({ color, size, focused }) => {
                     if (route.name === 'Profile') {
-                        return <Profile />
+                        return <Profile focused={focused} />
                     }
 
                     const { lib: Icon, name } = icons[route.name];
@@ -56,7 +56,11 @@ export function TabNavigation() {
             <Tab.Screen name='Search' component={Feed} />
             <Tab.Screen name='More' component={Feed} />
             <Tab.Screen name='Heart' component={Feed} />
-            <Tab.Screen name='Profile' component={Feed} />
+            <Tab.Screen name='Profile' component={Products}
+                options={{
+                    title: ''
+                }}
+            />
         </Tab.Navigator>
     )
 }
