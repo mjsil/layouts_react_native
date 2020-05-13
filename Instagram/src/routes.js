@@ -56,7 +56,7 @@ export function TabNavigation() {
             <Tab.Screen name='Search' component={Feed} />
             <Tab.Screen name='More' component={Feed} />
             <Tab.Screen name='Heart' component={Feed} />
-            <Tab.Screen name='Profile' component={Products}
+            <Tab.Screen name='Profile' component={Feed}
                 options={{
                     title: ''
                 }}
